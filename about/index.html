@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Platform Accountability | About</title>
+<meta name="description" content="About the Accountability Infrastructure project, its authors Nathaniel Lubin and Thomas Krendl Gilbert, and how to get in touch.">
+<meta property="og:title" content="Platform Accountability | About">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.platformaccountability.com/about">
+<meta property="og:site_name" content="Accountability">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Platform Accountability | About">
+<link rel="canonical" href="https://www.platformaccountability.com/about">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/proposal/">Proposal</a></li>
+    <li><a href="/about/" aria-current="page">About</a></li>
+    <li><a href="/about/">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="hero">
+    <img src="/assets/img/banner-about.jpg" alt="">
+    <h1>About Us</h1>
+  </div>
+
+  <article>
+    <p>This project was generously supported by the <a href="https://cyber.harvard.edu/programs/institute-rebooting-social-media">Berkman Klein Center at Harvard</a>, and by the <a href="https://www.dli.tech.cornell.edu/">Digital Life Initiative at Cornell Tech</a>.</p>
+
+    <div class="bio">
+      <h3><a href="http://www.natelubin.com/">Nathaniel Lubin</a></h3>
+      <p>Nathaniel Lubin is an RSM Fellow at the Berkman Klein Center at Harvard, and a Visiting Fellow at Cornell Tech&rsquo;s DLI. Nathaniel has spent his career focused on digital strategy, technology, and politics. His work has centered on developing novel approaches to improving online discourse, building measurement tools, and combating misinformation. He founded Fellow Americans, a non-profit which creates and tests more effective digital content, focusing on topics like COVID-19 response, civic participation, and improved social trust while working with some of the largest progressive organizations. He founded Survey 160, a software product designed to source data for polling and research, and has assisted more than 30 startups, major corporations, foundations, and advocacy organizations working to leverage technology and digital tools to better communicate with key audiences. Nathaniel previously was the Director of the Office of Digital Strategy at the White House where he led a team of strategists and practitioners to modernize the way the White House engaged and communicated with the American public. Before that, he served as Director of Digital Marketing at Obama for America in 2012 where he led the largest paid digital fundraising, persuasion, and outreach programs yet run in politics with a budget of more than $112 million. Nathaniel also worked on President Obama&rsquo;s 2008 campaign and helped launch Bully Pulpit Interactive, a leading digital marketing firm. Originally from New York, Lubin is an honors graduate from Harvard University.</p>
+    </div>
+
+    <div class="bio">
+      <h3><a href="https://www.thomaskrendlgilbert.com/">Thomas Krendl Gilbert</a></h3>
+      <p>Thomas Krendl Gilbert is a Postdoctoral Fellow at Cornell Tech&rsquo;s DLI. Thomas received an interdisciplinary Ph.D in Machine Ethics and Epistemology at UC Berkeley. With prior training in philosophy, sociology, and political theory, Thomas designed his degree program to investigate the ethical and political predicaments that emerge when artificial intelligence reshapes the context of organizational decision-making. His recent work investigates how specific algorithmic learning procedures (such as reinforcement learning) reframe classical ethical questions and recall the foundations of democratic political philosophy, namely the significance of popular sovereignty and dissent for resolving normative uncertainty and modeling human preferences. This work has concrete implications for the design of AI systems that are fair for distinct subpopulations, safe when enmeshed with institutional practices, and accountable to public concerns, including medium-term applications like automated vehicles.</p>
+    </div>
+
+    <h2>Thank you for your interest in this project.</h2>
+
+    <div id="form-wrapper">
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" name="first-name">
+
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" name="last-name">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone">
+
+        <label>Type of inquiry:</label>
+        <div class="inquiry-options">
+          <label><input type="checkbox" name="inquiry-type" value="Press"> Press</label>
+          <label><input type="checkbox" name="inquiry-type" value="Technology"> Technology</label>
+          <label><input type="checkbox" name="inquiry-type" value="Academic"> Academic</label>
+          <label><input type="checkbox" name="inquiry-type" value="Other"> Other</label>
+        </div>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message"></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+      <p id="form-error" class="form-note" role="alert" hidden></p>
+    </div>
+    <p id="form-success" class="form-note" role="status" hidden><strong>Thanks for submitting!</strong></p>
+  </article>
+</main>
+
+<footer>
+  <p>Accountability Infrastructure:</p>
+  <p>How to implement limits on platform optimization to protect population health</p>
+  <p>&copy;2023 Nathaniel Lubin</p>
+</footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const formWrapper = document.getElementById('form-wrapper');
+  const errorMsg = document.getElementById('form-error');
+  const successMsg = document.getElementById('form-success');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    errorMsg.hidden = true;
+    const data = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function (response) {
+      if (response.ok) {
+        formWrapper.hidden = true;
+        successMsg.hidden = false;
+      } else {
+        errorMsg.hidden = false;
+        errorMsg.textContent = 'Sorry, something went wrong submitting the form. Please try again or email us directly.';
+      }
+    }).catch(function () {
+      errorMsg.hidden = false;
+      errorMsg.textContent = 'Sorry, something went wrong submitting the form. Please try again or email us directly.';
+    });
+  });
+</script>
+
+</body>
+</html>
