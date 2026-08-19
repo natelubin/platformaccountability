@@ -76,16 +76,33 @@ main {
 }
 
 .hero {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  margin-bottom: 2.5rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
 }
 
-.hero img {
-  width: 110px;
-  border-radius: 4px;
-  flex-shrink: 0;
+.hero-tall { min-height: 460px; }
+
+.hero-home { background-image: url('/assets/img/hero-home.jpg'); }
+.hero-proposal { background-image: url('/assets/img/banner-proposal.jpg'); }
+.hero-about { background-image: url('/assets/img/banner-about.jpg'); }
+
+.hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  width: 100%;
+}
+
+.hero h1, .hero .tagline {
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
 }
 
 h1, h2, h3, h4, h5 {
@@ -244,6 +261,7 @@ footer {
 footer p { margin: 0.25rem 0; }
 
 @media (max-width: 600px) {
-  .hero { flex-direction: column; align-items: flex-start; }
+  .hero-tall { min-height: 360px; }
+  .hero { min-height: 220px; }
   .site-nav ul { gap: 1rem; padding: 0 1rem; }
 }
