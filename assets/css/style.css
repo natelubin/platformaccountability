@@ -9,7 +9,7 @@
   --border: #e2e2e2;
   --bg: #ffffff;
   --accent: #008afc;
-  --accent-text: #000000;
+  --accent-text: #ffffff;
   --max-width: 940px;
   --serif-font: Georgia, Palatino, "Book Antiqua", "Palatino Linotype", serif;
   --sans-font: 'Poppins', Arial, Helvetica, sans-serif;
@@ -25,6 +25,7 @@ html, body {
   font-family: var(--sans-font);
   font-weight: 300;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 img { max-width: 100%; height: auto; }
@@ -81,9 +82,11 @@ main {
 
 .hero {
   position: relative;
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   min-height: 260px;
-  margin: 0 0 2.5rem;
+  margin-bottom: 2.5rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
